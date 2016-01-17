@@ -13,7 +13,21 @@ require('babel-polyfill')
 process.env.BABEL_ENV = TARGET
 
 const common = {
-	entry: PATH.app,
-	
+	entry: [PATH.app],
+	output: {
+		path: PATH.build,
+		filename: 'bundle.js'
+	},
+	module: {
+		loaders: [{
+			test: /\.jsx?$/,
+			exclude: /node_modules/,
+			loader: 'babel'
+		}]
+	}
+}
+
+if (TARGET === 'start' || !TARGET) {
+	module.exports = merge(common, development)
 }
 
