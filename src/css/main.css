@@ -1,0 +1,31 @@
+.products {
+	width:1000px;
+	margin:100px auto;
+}
+.product-item {
+	padding: 5px;
+	display: inline-block;
+	border:1px solid silver;
+	border-radius: 10px;
+	width:300px;
+	margin-right:20px;
+	margin-bottom: 20px;
+}
+.shop-cart {
+	position: fixed;
+	right:0;
+	bottom: 0;
+	width:400px;
+	border: 1px solid #456789;
+	padding: 5px;
+}
+.shop-cart input{
+	display: inline-block;
+	width: 50px;
+}
+.shop-cart button{
+	margin-right: 20px;
+	margin-left: 20px;
+	padding:5px;
+	cursor: pointer;
+}

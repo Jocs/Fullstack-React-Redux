@@ -1,0 +1,25 @@
+{
+  "name": "shop_cart_with_redux",
+  "description": "a redux demo shop cart",
+  "main": "index.js",
+  "authors": [
+    "Jocs"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "redux"
+  ],
+  "homepage": "https://github.com/Jocs/shop_cart_with_redux",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic": "~2.1.8"
+  }
+}

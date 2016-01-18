@@ -4,7 +4,10 @@
   "description": "a redux demo shop cart",
   "main": "index.js",
   "scripts": {
-    "start": "node bin/index.js"
+    "clear": "rimraf dist",
+    "start": "node bin/index.js",
+    "build": "webpack --progress --werbose --colors --display-error-details --config webpack/common.config.js",
+    "build:production": "npm run clear && npm run build"
   },
   "keywords": [
     "react",
@@ -22,13 +25,19 @@
     "babel-preset-react-hmre": "^1.0.1",
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.4.3",
+    "body-parser": "^1.14.2",
     "express": "^4.13.3",
+    "file-loader": "^0.8.5",
+    "imports-loader": "^0.6.5",
+    "rimraf": "^2.5.0",
+    "url-loader": "^0.5.7",
     "webpack": "^1.12.11",
     "webpack-dev-middleware": "^1.4.0",
     "webpack-hot-middleware": "^2.6.0",
     "webpack-merge": "^0.7.3"
   },
   "dependencies": {
+    "jquery": "^2.2.0",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-redux": "^4.0.6",

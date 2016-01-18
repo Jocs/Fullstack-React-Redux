@@ -6,8 +6,8 @@ var babelrcConfig
 try {
 	babelrcConfig = JSON.parse(babelrc)
 } catch(e) {
-	console.log(`read '.babelrc' file error`)
-	console.log(e)
+	console.error(`read '.babelrc' file error`)
+	console.error(e)
 }
 
 require('babel-register')(babelrcConfig)

@@ -1,6 +1,7 @@
 const path = require('path')
 const merge = require('webpack-merge')
 const development = require('./dev.config')
+const production = require('./prod.config')
 
 const TARGET = process.env.npm_lifecycle_event
 const PATH = {
@@ -23,6 +24,15 @@ const common = {
 			test: /\.jsx?$/,
 			exclude: /node_modules/,
 			loader: 'babel'
+		},{
+			test: /\.css$/,
+			loader: 'style!css'
+		}, {
+			test: /\.(woff|woff2|ttf|svg)$/,
+			loader: 'url?limit=100000'
+		}, {
+			test: /\.(eot|png)$/,
+			loader: 'file'
 		}]
 	}
 }
@@ -30,4 +40,6 @@ const common = {
 if (TARGET === 'start' || !TARGET) {
 	module.exports = merge(common, development)
 }
-
+if(TARGET === 'build' || !TARGET) {
+	module.exports = merge(common, production)
+}
