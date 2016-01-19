@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import Products from '../components/Products'
 import Cart from '../components/Cart'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class App extends Component {
 	render() {
@@ -10,7 +11,12 @@ class App extends Component {
 		return (
 			<div>
 				<Products products={products} dispatch={dispatch}/>
-				{cart.length > 0? <Cart cart={cart} dispatch={dispatch}/>: null}
+				<ReactCSSTransitionGroup transitionName='cart'
+					transitionEnterTimeout={300} 
+					transitionLeaveTimeout={300}
+				>
+					{cart.length > 0? <Cart key={1} cart={cart} dispatch={dispatch}/>: null}
+				</ReactCSSTransitionGroup>
 			</div>
 		)
 	}
@@ -18,7 +24,6 @@ class App extends Component {
 
 function mapPropsToState(state){
 	const cart = state.products.filter(product => product.number > 0)
-	console.log(cart)
 	return {
 		products: state.products,
 		cart

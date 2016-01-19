@@ -3,9 +3,9 @@
 		"id": 1,
 		"pic": "lunch.jpg",
 		"name": "花腩饭汤套餐",
-		"num": 4970,
+		"num": 4969,
 		"money": 28.5,
-		"number": 0
+		"number": 1
 	},
 	{
 		"id": 2,
@@ -35,7 +35,7 @@
 		"id": 5,
 		"pic": "lunch.jpg",
 		"name": "冬菇鸡腿饭",
-		"num": 20,
+		"num": 2000,
 		"money": 12,
 		"number": 0
 	},
