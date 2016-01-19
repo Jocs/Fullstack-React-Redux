@@ -2,7 +2,7 @@ import express from 'express'
 import http from 'http'
 import webpack from 'webpack'
 import bodyParser from 'body-parser'
-import { getProducts, setProducts } from './server/api'
+import menuRoute from './server/router'
 
 // getProducts(products => {
 // 	const data = products
@@ -36,20 +36,22 @@ const PORT = 3000;
  
 	// parse application/json 
 	app.use(bodyParser.json())
+
 })()
 
-app.get('/products', (req, res) => {
-	getProducts(products => {
-		res.send(products)
-	})
-})
+menuRoute(app)
+// app.get('/products', (req, res) => {
+// 	getProducts(products => {
+// 		res.send(products)
+// 	})
+// })
 
-app.post('/products', (req, res) => {
+// app.post('/products', (req, res) => {
 	
-	console.log(req.body)
-	setProducts(JSON.stringify(req.body.products, null, '\t'))
-	res.send(req.body)
-})
+// 	console.log(req.body)
+// 	setProducts(JSON.stringify(req.body.products, null, '\t'))
+// 	res.send(req.body)
+// })
 
 server.listen(process.env.PORT || PORT, () => {
 	const address = server.address()

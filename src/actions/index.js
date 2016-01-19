@@ -1,5 +1,8 @@
 import { ADD_TO_CART, RECEIVE_PRODUCTS, CHECK_OUT } from '../constants/index'
-console.log(RECEIVE_PRODUCTS)
+//import falcor from 'falcor'
+
+const model = new falcor.Model({source: new falcor.HttpDataSource('/menu.json') })
+
 export const receiveAllProducts = response => {
 	const products = (typeof response === 'object' && response.hasOwnProperty('length'))?
 	response : response.products
@@ -11,9 +14,7 @@ export const receiveAllProducts = response => {
 
 export const getAllProducts = () => {
 	return dispatch => {
-		fetch('/products')
-		.then(response => response.json())
-		.then( response => dispatch(receiveAllProducts(response)))
+		getProducts(dispatch)
 	}
 }
 
@@ -54,20 +55,35 @@ export const checkout = () => {
 		sendProducts(dispatch, products)
 	}
 }
+const getProducts = dispatch => {
+	model.get('menu')
+		.then(response => {
+			const products = JSON.parse(response.json.menu)
+			dispatch(receiveAllProducts(products))}, 
+			error => console.log(error))
+}
 
 const sendProducts = (dispatch, products) => {
-	const config = {
-		method: 'post',
-		headers: {
-			'Accept': 'application/json',
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({
-			products
+	model.setValue(['menu'], { products })
+		.then(response => {
+			const products = JSON.parse(response).products
+			dispatch(receiveAllProducts(products))
 		})
-	}
-	fetch('/products', config)
-		.then(response => response.json())
-		.then(response => dispatch(receiveAllProducts(response)))
 }
+
+// const sendProducts = (dispatch, products) => {
+// 	const config = {
+// 		method: 'post',
+// 		headers: {
+// 			'Accept': 'application/json',
+// 			'Content-Type': 'application/json'
+// 		},
+// 		body: JSON.stringify({
+// 			products
+// 		})
+// 	}
+// 	fetch('/products', config)
+// 		.then(response => response.json())
+// 		.then(response => dispatch(receiveAllProducts(response)))
+// }
 

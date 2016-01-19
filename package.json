@@ -27,6 +27,8 @@
     "babel-register": "^6.4.3",
     "body-parser": "^1.14.2",
     "express": "^4.13.3",
+    "falcor-express": "^0.1.2",
+    "falcor-router": "^0.2.12",
     "file-loader": "^0.8.5",
     "imports-loader": "^0.6.5",
     "rimraf": "^2.5.0",
@@ -37,6 +39,7 @@
     "webpack-merge": "^0.7.3"
   },
   "dependencies": {
+    "falcor": "^0.1.15",
     "jquery": "^2.2.0",
     "react": "^0.14.6",
     "react-addons-css-transition-group": "^0.14.6",

@@ -9,6 +9,6 @@ try {
 	console.error(`read '.babelrc' file error`)
 	console.error(e)
 }
-
+require('babel-polyfill')
 require('babel-register')(babelrcConfig)
 require('../server.js')
