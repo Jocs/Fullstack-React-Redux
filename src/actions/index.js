@@ -1,7 +1,9 @@
 import { ADD_TO_CART, RECEIVE_PRODUCTS, CHECK_OUT } from '../constants/index'
-//import falcor from 'falcor'
+//depracated fetch and use falcor as the data request library
+import falcor from 'falcor'
+import FalcorDataSource from 'falcor-http-datasource'
 
-const model = new falcor.Model({source: new falcor.HttpDataSource('/menu.json') })
+const model = new falcor.Model({source: new FalcorDataSource('/menu.json') })
 
 export const receiveAllProducts = response => {
 	const products = (typeof response === 'object' && response.hasOwnProperty('length'))?
@@ -59,7 +61,8 @@ const getProducts = dispatch => {
 	model.get('menu')
 		.then(response => {
 			const products = JSON.parse(response.json.menu)
-			dispatch(receiveAllProducts(products))}, 
+			dispatch(receiveAllProducts(products))
+		}, 
 			error => console.log(error))
 }
 

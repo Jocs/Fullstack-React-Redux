@@ -28,7 +28,7 @@ class ProductItem extends Component {
 				<h2>{name}</h2>
 				<div>库存：{num}</div>
 				<div>价格：{money}</div>
-				<input type='number' 
+				订单数量：<input type='number' 
 					onChange={(event) => this.handleOnChange(event)} 
 					value={this.state.number}/>
 			</div>
