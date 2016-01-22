@@ -1,13 +1,12 @@
-import { ADD_TO_CART, RECEIVE_PRODUCTS, CHECK_OUT } from '../constants/index'
-//depracated fetch and use falcor as the data request library
+import { RECEIVE_PRODUCTS } from '../constants/index'
+// depracated fetch and use falcor as the data request library
 import falcor from 'falcor'
 import FalcorDataSource from 'falcor-http-datasource'
 
-const model = new falcor.Model({source: new FalcorDataSource('/menu.json') })
+const model = new falcor.Model({ source: new FalcorDataSource('/menu.json') })
 
 export const receiveAllProducts = response => {
-	const products = (typeof response === 'object' && response.hasOwnProperty('length'))?
-	response : response.products
+	const products = (typeof response === 'object' && response.hasOwnProperty('length')) ? response : response.products
 	return {
 		type: RECEIVE_PRODUCTS,
 		products: products
@@ -24,9 +23,9 @@ export const addToCart = (id, quantity) => {
 	return (dispatch, getState) => {
 		const state = Object.assign({}, getState())
 		let products = state.products
-		products.forEach( (product, index) => {
-			if(product.id === id && product.number !== quantity) {
-				products[index].num +=  products[index].number - quantity
+		products.forEach((product, index) => {
+			if (product.id === id && product.number !== quantity) {
+				products[index].num += products[index].number - quantity
 				products[index].number = Number(quantity)
 			}
 		})
@@ -39,7 +38,7 @@ export const emptyCart = () => {
 	return (dispatch, getState) => {
 		const state = Object.assign({}, getState())
 		const products = state.products
-		products.forEach( (product, index) => {
+		products.forEach((product, index) => {
 			product.num += product.number
 			product.number = 0
 		})
@@ -51,7 +50,7 @@ export const checkout = () => {
 	return (dispatch, getState) => {
 		const state = Object.assign({}, getState())
 		const products = state.products
-		products.forEach( (product, index) => {
+		products.forEach((product, index) => {
 			product.number = 0
 		})
 		sendProducts(dispatch, products)
@@ -62,7 +61,7 @@ const getProducts = dispatch => {
 		.then(response => {
 			const products = JSON.parse(response.json.menu)
 			dispatch(receiveAllProducts(products))
-		}, 
+		},
 			error => console.log(error))
 }
 

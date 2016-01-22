@@ -31,10 +31,10 @@ const PORT = 3000;
 	}))
 	app.use(express.static(__dirname + '/'))
 
-	// parse application/x-www-form-urlencoded 
+	// parse application/x-www-form-urlencoded
 	app.use(bodyParser.urlencoded({ extended: false }))
- 
-	// parse application/json 
+
+	// parse application/json
 	app.use(bodyParser.json())
 
 })()
@@ -47,7 +47,7 @@ menuRoute(app)
 // })
 
 // app.post('/products', (req, res) => {
-	
+
 // 	console.log(req.body)
 // 	setProducts(JSON.stringify(req.body.products, null, '\t'))
 // 	res.send(req.body)
@@ -59,3 +59,4 @@ server.listen(process.env.PORT || PORT, () => {
 	console.log(`App listen on: ${family} at PORT: ${port}`)
 	console.log(`TARGET: ${process.env.npm_lifecycle_event}`)
 })
+

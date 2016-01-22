@@ -12,17 +12,17 @@ class App extends Component {
 			<div>
 				<Products products={products} dispatch={dispatch}/>
 				<ReactCSSTransitionGroup transitionName='cart'
-					transitionEnterTimeout={300} 
+					transitionEnterTimeout={300}
 					transitionLeaveTimeout={300}
 				>
-					{cart.length > 0? <Cart key={1} cart={cart} dispatch={dispatch}/>: null}
+					{cart.length > 0 ? <Cart key={1} cart={cart} dispatch={dispatch}/> : null}
 				</ReactCSSTransitionGroup>
 			</div>
 		)
 	}
 }
 
-function mapPropsToState(state){
+function mapPropsToState(state) {
 	const cart = state.products.filter(product => product.number > 0)
 	return {
 		products: state.products,
