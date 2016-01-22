@@ -1,4 +1,4 @@
-import { RECEIVE_PRODUCTS } from '../constants/index'
+import { RECEIVE_PRODUCTS, ADD_FLY_BALL, UPDATE_FLY_BALL, DELETE_FLY_BALL } from '../constants/index'
 // depracated fetch and use falcor as the data request library
 import falcor from 'falcor'
 import FalcorDataSource from 'falcor-http-datasource'
@@ -73,6 +73,30 @@ const sendProducts = (dispatch, products) => {
 		})
 }
 
+export const addFlyBall = ({ id, x, y }) => {
+	return {
+		type: ADD_FLY_BALL,
+		id,
+		x,
+		y
+	}
+}
+
+export const updateFlyBall = ({ id, x, y }) => {
+	return {
+		type: UPDATE_FLY_BALL,
+		id,
+		x,
+		y
+	}
+}
+
+export const deleteFlyBall = (id) => {
+	return {
+		type: DELETE_FLY_BALL,
+		id
+	}
+}
 // const sendProducts = (dispatch, products) => {
 // 	const config = {
 // 		method: 'post',

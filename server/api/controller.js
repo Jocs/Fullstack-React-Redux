@@ -13,6 +13,6 @@ export const getProducts = () => {
 }
 
 export const setProducts = products => {
-	fs.writeFile(filePath, products, 'utf-8', err => {if(err) console.log(err)})
+	fs.writeFile(filePath, products, 'utf-8', err => { if (err) console.log(err) })
 }
 

@@ -19,7 +19,9 @@
   "globals": {
     "document": true,
     "navigator": true,
-    "window": true
+    "window": true,
+    "React": true,
+    "PropTypes": true
   },
 
   "parser": "babel-eslint",

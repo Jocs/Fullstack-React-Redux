@@ -47,6 +47,13 @@
 	bottom: -400px;
 	transition: all 300ms ease-in;
 }
+.fly-ball {
+	width: 20px;
+	height: 20px;
+	background: blue;
+	border-radius: 50%;
+	position: absolute;
+}
 
 
 

@@ -19,7 +19,7 @@
 		"id": 3,
 		"pic": "lunch.jpg",
 		"name": "香辣焗翅",
-		"num": 147,
+		"num": 145,
 		"money": 7,
 		"number": 0
 	},
@@ -35,7 +35,7 @@
 		"id": 5,
 		"pic": "lunch.jpg",
 		"name": "冬菇鸡腿饭",
-		"num": 1998,
+		"num": 1991,
 		"money": 12,
 		"number": 0
 	},
@@ -43,7 +43,7 @@
 		"id": 6,
 		"pic": "lunch.jpg",
 		"name": "鱼香肉丝",
-		"num": 10,
+		"num": 8,
 		"money": 30,
 		"number": 0
 	}

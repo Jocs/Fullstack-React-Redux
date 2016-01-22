@@ -8,8 +8,8 @@ import rootReducer from './reducers'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 
-/*trackJs BEGIN collect response/request payload*/
-//import $ from 'jquery'
+/* trackJs BEGIN collect response/request payload*/
+// import $ from 'jquery'
 // window._trackJs = {
 //   token: "YOUR_TOKEN_HERE",
 //   network: {
@@ -48,12 +48,10 @@ import logger from 'redux-logger'
 // 	else if(e.keyCode === 66 && e.ctrlKey) button.style.display = 'none'
 // })
 
-/*trackJs END*/
+/* trackJs END */
 import './css/main.css'
 
-const middleware = process.env.NODE_ENV === 'production' ? 
-	[thunk] : 
-	[thunk, logger()]
+const middleware = process.env.NODE_ENV === 'production' ? [thunk] : [thunk, logger()]
 
 const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore)
 const store = createStoreWithMiddleware(rootReducer)

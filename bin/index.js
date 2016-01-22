@@ -5,7 +5,7 @@ var babelrcConfig
 
 try {
 	babelrcConfig = JSON.parse(babelrc)
-} catch(e) {
+} catch (e) {
 	console.error(`read '.babelrc' file error`)
 	console.error(e)
 }

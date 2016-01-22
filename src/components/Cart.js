@@ -7,15 +7,15 @@ class Cart extends Component {
 		const { cart, dispatch } = this.props
 		const nodes = cart.map(c => {
 			return (
-				<CartItem key={c.id} {...c} 
+				<CartItem key={c.id} {...c}
 					handleChange={quantity => dispatch(addToCart(c.id, quantity))}
 				/>
 			)
 		})
-		const total = cart.reduce((t, c) => t + c.number * c.money , 0)
+		const total = cart.reduce((t, c) => t + c.number * c.money, 0)
 		return (
 			<div className='shop-cart'>
-				<h3>购物车</h3>
+				<h3 id='bottom-cart'>购物车</h3>
 				<ul>
 					{nodes}
 				</ul>

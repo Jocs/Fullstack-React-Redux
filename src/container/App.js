@@ -1,12 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
 import Products from '../components/Products'
 import Cart from '../components/Cart'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import FlyBalls from '../components/FlyBalls'
 
 class App extends Component {
 	render() {
-		const { products, cart, dispatch } = this.props
+		const { products, flyballs, cart, dispatch } = this.props
 
 		return (
 			<div>
@@ -17,6 +19,7 @@ class App extends Component {
 				>
 					{cart.length > 0 ? <Cart key={1} cart={cart} dispatch={dispatch}/> : null}
 				</ReactCSSTransitionGroup>
+				<FlyBalls balls={flyballs}/>
 			</div>
 		)
 	}
@@ -26,6 +29,7 @@ function mapPropsToState(state) {
 	const cart = state.products.filter(product => product.number > 0)
 	return {
 		products: state.products,
+		flyballs: state.flyballs,
 		cart
 	}
 }
