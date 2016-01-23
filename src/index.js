@@ -36,16 +36,17 @@ import logger from 'redux-logger'
 // document.body.appendChild(button)
 // button.addEventListener('click', e => {
 // 	const reqListener = function() { console.log(this.responseText) }
-// 	const oReq = new XMLHttpRequest();
-// 	oReq.onload = reqListener;
-// 	oReq.open("get", "yourFile.txt", true);
-// 	oReq.send();
+// 	const oReq = new XMLHttpRequest()
+// 	oReq.onload = reqListener
+// 	oReq.open('get', 'yourFile.txt', true)
+// 	oReq.send()
+
 // })
 // document.addEventListener('keyup', e => {
-// 	if(e.keyCode === 66 && e.shiftKey) {
+// 	if (e.keyCode === 66 && e.shiftKey) {
 // 		button.style.display = 'block'
 // 	}
-// 	else if(e.keyCode === 66 && e.ctrlKey) button.style.display = 'none'
+// 	else if (e.keyCode === 66 && e.ctrlKey) button.style.display = 'none'
 // })
 
 /* trackJs END */

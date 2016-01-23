@@ -24,7 +24,7 @@ const common = {
 			test: /\.jsx?$/,
 			exclude: /node_modules/,
 			loader: 'babel'
-		},{
+		}, {
 			test: /\.css$/,
 			loader: 'style!css'
 		}, {
@@ -40,6 +40,6 @@ const common = {
 if (TARGET === 'start' || !TARGET) {
 	module.exports = merge(common, development)
 }
-if(TARGET === 'build' || !TARGET) {
+if (TARGET === 'build' || !TARGET) {
 	module.exports = merge(common, production)
 }
